@@ -30,4 +30,14 @@ app.post("/account", (request, response) => {
 
 });
 
+app.get("/statement/:cpf", (request, response) => {
+    
+    const {cpf} = request.params;
+
+    const customer = customers.find(customer => customer.cpf === cpf);
+
+    return response.json(customer.statement);
+
+})
+
 app.listen(3333);
